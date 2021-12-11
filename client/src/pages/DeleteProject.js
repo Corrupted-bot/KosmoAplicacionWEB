@@ -14,7 +14,7 @@ const DeleteProject = () => {
     }
     // Peticion al servidor
     const EliminarProject = () => {
-        Axios.post('http://localhost:4000/remove-project', {
+        Axios.post('http://kosmo.icfunab.cl/api/remove-project', {
             id: idproyectos,
         }).then((response) => {
             console.log(response);

@@ -23,7 +23,7 @@ const EditProject = () => {
     }
 
     const EditarProyecto = () => {
-        Axios.post("http://localhost:4000/edit-project", {
+        Axios.post("http://kosmo.icfunab.cl/api/edit-project", {
             id: idproyectos,
             nombre: nombreproject,
             descripcion: descripcion
@@ -37,7 +37,7 @@ const EditProject = () => {
 
     useEffect(() => {
         async function fetchMyAPI() {
-            const res = await Axios.post('http://localhost:4000/mostrar-proyecto', { idproyectos });
+            const res = await Axios.post('http://kosmo.icfunab.cl/api/mostrar-proyecto', { idproyectos });
             setdata(res.data);
             setnombreproject(res.data[0].nombre);
             setdescripcion(res.data[0].descripcion);

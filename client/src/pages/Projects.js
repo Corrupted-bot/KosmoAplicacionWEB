@@ -16,8 +16,8 @@ const Projects = () => {
 
     useEffect(() => {
         async function fetchMyAPI() {
-            const res = await Axios.post('http://localhost:4000/mostrar-proyecto', { idproyectos });
-            const res2 = await Axios.post('http://localhost:4000/puestotrabajo-view', { idproyectos });
+            const res = await Axios.post('http://kosmo.icfunab.cl/api/mostrar-proyecto', { idproyectos });
+            const res2 = await Axios.post('http://kosmo.icfunab.cl/api/puestotrabajo-view', { idproyectos });
             setdata(res.data);
             setdata2(res2.data);
             setbandera("1");

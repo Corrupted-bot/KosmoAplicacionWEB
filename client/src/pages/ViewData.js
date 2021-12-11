@@ -25,7 +25,7 @@ const ViewData = () => {
 
 
     const AgregarProyecto = () => {
-        Axios.post('http://localhost:4000/add-project', { nombre, descripcion, id }).then((response) => {
+        Axios.post('http://kosmo.icfunab.cl/api/add-project', { nombre, descripcion, id }).then((response) => {
             console.log(response)
         });
         alert("Proyecto agregado correctamente.");
@@ -36,12 +36,12 @@ const ViewData = () => {
 
     useEffect(() => {
         async function fetchMyAPI() {
-            const res = await Axios.post('http://localhost:4000/empresa-view', { id });
+            const res = await Axios.post('http://kosmo.icfunab.cl/api/empresa-view', { id });
             setdata(res.data);
             setbandera("1");
         }
         async function fetchMyAPIproyectos() {
-            const res = await Axios.post('http://localhost:4000/project-view', { id });
+            const res = await Axios.post('http://kosmo.icfunab.cl/api/project-view', { id });
             setdataProyecto(res.data);
             setbandera("1");
         }

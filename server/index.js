@@ -33,7 +33,7 @@ const PORT = process.env.PORT || 4000;
 
 
 //LOGIN CORRECTO
-app.post('/login', (req, res) => {
+app.post('/api/login', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -50,7 +50,7 @@ app.post('/login', (req, res) => {
         });
 });
 //REGISTRO CORRECTO
-app.post('/register', (req, res) => {
+app.post('/api/register', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -61,7 +61,7 @@ app.post('/register', (req, res) => {
 });
 
 // REGISTO EMPRESA
-app.post('/diagnostico', (req, res) => {
+app.post('/api/diagnostico', (req, res) => {
     const username = req.body.username;
     const rut = req.body.rut;
     const giro = req.body.giro;
@@ -80,7 +80,7 @@ app.post('/diagnostico', (req, res) => {
 
 //MOSTRAR UNA EMPRESA 
 
-app.post('/empresa-view', (req, res) => {
+app.post('/api/empresa-view', (req, res) => {
     const id = req.body.id;
     db.query("SELECT * FROM empresas WHERE idEmpresas = ?", [id],
         function (err, result, fields) {
@@ -95,7 +95,7 @@ app.post('/empresa-view', (req, res) => {
 
 
 //Paso de datos para generar cartas
-app.post('/add-diagnostico-1', (req, res) => {
+app.post('/api/add-diagnostico-1', (req, res) => {
 
     const user = req.body.user
     db.query("SELECT * FROM empresas WHERE idUsers = ?", [user],
@@ -113,7 +113,7 @@ app.post('/add-diagnostico-1', (req, res) => {
 
 
 //ELMINAR EMPRESA 
-app.post("/remove-company", (req, res) => {
+app.post("/api/remove-company", (req, res) => {
     const id = req.body.id
 
 
@@ -139,7 +139,7 @@ app.post("/remove-company", (req, res) => {
 
 //EDITAR EMPRESA
 
-app.post("/edit-company", (req, res) => {
+app.post("/api/edit-company", (req, res) => {
     const username = req.body.username;
     const rut = req.body.rut;
     const giro = req.body.giro;
@@ -161,7 +161,7 @@ app.post("/edit-company", (req, res) => {
 
 //AGREGAR PROYECTO
 
-app.post("/add-project", (req, res) => {
+app.post("/api/add-project", (req, res) => {
 
     const nombre = req.body.nombre;
     const descripcion = req.body.descripcion;
@@ -176,7 +176,7 @@ app.post("/add-project", (req, res) => {
 
 //MOSTRAR PROYECTOS
 
-app.post("/project-view", (req, res) => {
+app.post("/api/project-view", (req, res) => {
 
     const id = req.body.id;
 
@@ -189,7 +189,7 @@ app.post("/project-view", (req, res) => {
 
 //MOSTRAR PROYECTO 1
 
-app.post("/mostrar-proyecto", (req, res) => {
+app.post("/api/mostrar-proyecto", (req, res) => {
     const id = req.body.idproyectos
 
     db.query("SELECT * FROM proyectos where idproyectos = ?", id,
@@ -200,7 +200,7 @@ app.post("/mostrar-proyecto", (req, res) => {
 
 
 //ELMINAR PROYECTO
-app.post("/remove-project", (req, res) => {
+app.post("/api/remove-project", (req, res) => {
     const id = req.body.id
 
     db.query("DELETE FROM proyectos WHERE idproyectos = ?", id,
@@ -217,7 +217,7 @@ app.post("/remove-project", (req, res) => {
 
 //EDITAR PROYECTO
 
-app.post("/edit-project", (req, res) => {
+app.post("/api/edit-project", (req, res) => {
 
     const id = req.body.id;
     const nombre = req.body.nombre;
@@ -230,7 +230,7 @@ app.post("/edit-project", (req, res) => {
 });
 
 // REGISTRO puesto
-app.post('/puestotrabajo', (req, res) => {
+app.post('/api/puestotrabajo', (req, res) => {
 
     const nombrePuesto = req.body.nombrePuesto
     const Descripcionpuesto = req.body.Descripcionpuesto
@@ -345,7 +345,7 @@ app.post('/puestotrabajo', (req, res) => {
     const idproyectos = req.body.idproyectos
 
 
-    db.query("INSERT INTO puestotrabajos (idproyectos,nombrepuesto,descripcionpuesto,controlhorario,detallescontrolhorario,normasvestuario,detallesvestuario,formacioncasa,detallesformacion,pensionempresa,detallespension,relacionfamilia,detallesrelacion,seguroenfermedad,detallesseguro,vacaciones,detallesvacaciones,evaluacionderiesgo,detallesriesgo,evaluacionrealizada,detallesevaluacion,promocionlaboral,flexibilidad,Estardepie,Caminar,EstarSentado,Levantar,Acarrear,Empujar,Subir,Equilibrio,Encorvarse,Arrodillarse,ManipularManos,ManipularDestreza,Vision,Audicion,Adaptacion,Supervision,Jornada,Lugar,Moverse,Actividad,Temperatura,Ruido,Limpieza,Tareas,Espacio,Sexo,Uniforme,Palabras,Numeros,Transporte,Otros,Manos,Buenavision,Oido,Comunicacion,Pesos,Fuerza,Leer,UsarNumeros,Dinero,Hora,rapido,calidad,concentrarse,variastareas,buenequilibrio,andar,estarpie,sentado,escaleras,enfado,recordar,telefono,conducir,ordenador,deletrear,letra,opinion,apoyo,iniciativa,apariencia,higiene,cumplirhorario,detcumplirhorario,asistencia,detasistencia,comunicarse,detcomunicarse,conducta,detconducta,vestido,detvestido,interaccion,detinteraccion,motivacion,detmotivacion,flexible,detflexible,inicio,detinicio,equipo,detequipo,salud,detsalud,consistencia,detconsistencia,presion,detpresion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+    db.query("INSERT INTO puestotrabajos (idproyectos,nombrepuesto,descripcionpuesto,controlhorario,detallescontrolhorario,normasvestuario,detallesvestuario,formacioncasa,detallesformacion,pensionempresa,detallespension,relacionfamilia,detallesrelacion,seguroenfermedad,detallesseguro,vacaciones,detallesvacaciones,evaluacionderiesgo,detallesriesgo,evaluacionrealizada,detallesevaluacion,promocionlaboral,flexibilidad,Estardepie,Caminar,EstarSentado,Levantar,Acarrear,Empujar,Subir,Equilibrio,Encorvarse,Arrodillarse,ManipularManos,ManipularDestreza,Vision,Audicion,Adaptacion,Supervision,Jornada,Lugar,Moverse,Actividad,Temperatura,Ruido,Limpieza,Tareas,Espacio,Sexo,Uniforme,Palabras,Numeros,Transporte,Otros,Manos,Buenavision,Oido,Comunicacion,Pesos,Fuerza,Leer,UsarNumeros,Dinero,Hora,r/apido,calidad,concentrarse,variastareas,buenequilibrio,andar,estarpie,sentado,escaleras,enfado,recordar,telefono,conducir,ordenador,deletrear,letra,opinion,apoyo,iniciativa,apariencia,higiene,cumplirhorario,detcumplirhorario,asistencia,detasistencia,comunicarse,detcomunicarse,conducta,detconducta,vestido,detvestido,interaccion,detinteraccion,motivacion,detmotivacion,flexible,detflexible,inicio,detinicio,equipo,detequipo,salud,detsalud,consistencia,detconsistencia,presion,detpresion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         [idproyectos,nombrePuesto,Descripcionpuesto,
             ControlHorario,
             detallescontrolhor,
@@ -408,7 +408,7 @@ app.post('/puestotrabajo', (req, res) => {
             UsarNumeros,
             Dinero,
             Hora,
-            Rapido,
+            R/apido,
             calidad,
             concentrarse,
             variastareas,
@@ -464,7 +464,7 @@ app.post('/puestotrabajo', (req, res) => {
 
 
 
-app.post("/puestotrabajo-view", (req, res) => {
+app.post("/api/puestotrabajo-view", (req, res) => {
     const id = req.body.idproyectos
 
     db.query("SELECT * FROM puestotrabajos where idproyectos = ?", id,
@@ -473,7 +473,7 @@ app.post("/puestotrabajo-view", (req, res) => {
         });
 })
 
-app.post("/apt-view", (req, res) => {
+app.post("/api/apt-view", (req, res) => {
     const id = req.body.idproyectos
 
     db.query("SELECT * FROM puestotrabajos where IdAPT = ?", id,

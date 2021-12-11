@@ -38,7 +38,7 @@ const Empresas = () => {
 
 
     const AgregarEmpresa = () => {
-        Axios.post('http://localhost:4000/diagnostico', {
+        Axios.post('http://kosmo.icfunab.cl/api/diagnostico', {
             username: nombreEmpresa,
             rut: rutEmpresa,
             giro: giroEmpresa,
@@ -58,7 +58,7 @@ const Empresas = () => {
 
     useEffect(() => {
         async function fetchMyAPI() {
-            const res = await Axios.post('http://localhost:4000/add-diagnostico-1', { user: auth.user.id });
+            const res = await Axios.post('http://kosmo.icfunab.cl/api/add-diagnostico-1', { user: auth.user.id });
             setdata(res.data);
             setbandera("1");
         }

@@ -33,7 +33,7 @@ const EditData = () => {
     }
 
     const EditarEmpresa = () => {
-        Axios.post('http://localhost:4000/edit-company', {
+        Axios.post('http://kosmo.icfunab.cl/api/edit-company', {
           username: nombreEmpresa,
           rut: rutEmpresa,
           giro: giroEmpresa,
@@ -54,7 +54,7 @@ const EditData = () => {
     
     useEffect(() => {
         async function fetchMyAPI(){
-            const res = await Axios.post('http://localhost:4000/empresa-view',{id});
+            const res = await Axios.post('http://kosmo.icfunab.cl/api/empresa-view',{id});
             setdata(res.data);
             setNombreEmpresa(res.data[0].NombreEmpresa);
             setrutEmpresa(res.data[0].RutEmpresa);

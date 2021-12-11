@@ -17,7 +17,7 @@ const Login = () => {
     }
     // Peticion al servidor
     const login = () => {
-        Axios.post('http://localhost:4000/login', {
+        Axios.post('http://kosmo.icfunab.cl/api/login', {
             username: username,
             password: password
         }).then((response) => {

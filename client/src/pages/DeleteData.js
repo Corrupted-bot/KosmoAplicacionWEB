@@ -14,7 +14,7 @@ const DeleteData = () => {
     }
     // Peticion al servidor
     const EliminarCompany = () => {
-        Axios.post('http://localhost:4000/remove-company', {
+        Axios.post('http://kosmo.icfunab.cl/api/remove-company', {
             id: id,
         }).then((response) => {
             console.log(response);

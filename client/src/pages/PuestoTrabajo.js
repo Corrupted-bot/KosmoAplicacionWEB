@@ -168,7 +168,7 @@ const PuestoTrabajo = () => {
     const [detPresion, setdetPresion] = useState("");
 
     const GuardarPuestoTrabajo = () => {
-        Axios.post("http://localhost:4000/puestotrabajo", {
+        Axios.post("http://kosmo.icfunab.cl/api/puestotrabajo", {
             nombrePuesto: nombrePuesto,
             Descripcionpuesto: Descripcionpuesto,
             ControlHorario: ControlHorario,
