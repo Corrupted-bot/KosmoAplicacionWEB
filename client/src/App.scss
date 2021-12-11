@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Rubik', sans-serif;
+}
+
+$light: #ffffff;
+$gray: #e7e9eb;
+
+.flex{
+  display: flex;
+}
+
+.navbar{
+  background-color: $light;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid $gray;
+}
+
+.sidebar{
+  width: 14rem;
+  height: calc(100vh - 0px);
+  border-right: 1px solid $gray;
+  ul{
+    list-style: none;
+    padding: 1rem 2rem;
+    li{
+      margin-bottom: 1rem;
+      &:hover{
+        background-color: $gray;
+      }
+      a{
+        text-decoration: none;
+        &.active{
+          background-color: $gray;
+        }
+      }
+    }
+  }
+}
+
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  height: 94vh!important;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
+
+.hover-activo{
+  &:hover{
+    background-color: $gray;
+  }
+}
+
+.botonAtras{
+  margin: 17px;
+  padding: 10px;
+}
+
+.botonGuardar{
+  margin: 30px;
+  padding: 20px!important;
+}
+
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 500px;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }
+
+
+  .bg-dark2 {
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+
+  .nav-link2{
+    background-color: #a32626!important;
+    color: white!important;
+    margin: 2px!important;
+  }
+  .nav-link2:hover {
+    background-color: #be2c2c!important;
+  }
+  .nav-link2:active {
+    background-color: black!important;
+  }
+  
+
+
+  .formulario{  
+    width:300px; 
+    /* width: 535px; */
+    padding:16px;
+    border-radius:10px;
+    margin:auto;
+    margin-top: 41px;
+    /* background: #212529; */
+    background: #a32626;
+    box-shadow: 10px 5px 5px black;
+    color: white;
+    text-align: center;
+  }
+  .formulario-2{
+    width: 600px;
+  }
+  .formulario-2 label{
+    width: 214px;
+  }
+  .formulario label{
+  
+    /* width: 214px; */
+    font-weight:bold;
+    display:inline-block;
+  }
+
+  .formulario input[type="text"],
+.formulario input[type="email"]{
+  width: 246px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+select {
+  padding: 10px;
+}
+
+textarea{
+	width:100%;
+	height:200px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	/*resize: vertical | horizontal | none | both*/
+	resize:none;
+	display:block;
+}
+.negro{
+  background-color: black!important;
+}
